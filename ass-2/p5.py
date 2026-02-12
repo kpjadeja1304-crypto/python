@@ -1,18 +1,23 @@
 '''
 5. Write a function inside another function.
 '''
-def outer_function(x, y):
-    # Inner function defined inside outer_function
-    def inner_addition(a, b):
-        return a + b
-    
-    # Using the inner function
-    result = inner_addition(x, y)
-    return result * 2  # Outer function does something extra
 
+def cal(x, y):
+    # Inner function defined inside outer_function
+    def add():
+        return x + y
+    
+    def multi():
+        return x * y
+    
+    # Returning results of inner functions
+    return add(), multi()
 
 # Example usage
 num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
 
-print("Final result:", outer_function(num1, num2))
+addition, multiplication = cal(num1, num2)
+
+print("Addition result:", addition)
+print("Multiplication result:", multiplication)
